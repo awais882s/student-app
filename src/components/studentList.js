@@ -1,7 +1,13 @@
 import React from 'react'
 
-export default function studentList() {
+export default function StudentList({ key }){
+
   return (
-    <div>studentList</div>
+
+    <tr>
+      <th>{key.name}</th>
+      <td>{key.rollno}</td>
+      <td>{key.class}</td>
+    </tr>
   )
 }
