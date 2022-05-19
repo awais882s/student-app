@@ -1,13 +1,16 @@
 import React from 'react'
 
-export default function StudentList({ key }){
+export default function StudentList({ student }) {
 
   return (
+    
+    <tbody>
+      <tr>
+        <td>{student.name}</td>
+        <td>{student.rollno}</td>
+        <td>{student.class}</td>
+      </tr>
+    </tbody>
 
-    <tr>
-      <th>{key.name}</th>
-      <td>{key.rollno}</td>
-      <td>{key.class}</td>
-    </tr>
   )
 }
