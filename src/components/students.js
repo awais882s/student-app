@@ -11,14 +11,15 @@ export default function Students() {
           <table class="table">
             <thead>
               <tr>
+                <th>No:</th>
                 <th scope="col">Name:</th>
                 <th scope="col">RollNo:</th>
                 <th scope="col">Class</th>
               </tr>
             </thead>
             {
-              students.map((item) => {
-                return <StudentList student={item} />
+              students.map((item, index) => {
+                return <StudentList index={index} student={item} />
 
               })
             }
