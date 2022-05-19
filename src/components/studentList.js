@@ -8,7 +8,7 @@ export default function StudentList({ student, index }) {
         <td>{index}</td>
         <td>{student.name}</td>
         <td>{student.rollno}</td>
-        <td>{student.class}</td>
+        <td>{student.batch}</td>
       </tr>
     </tbody>
 
