@@ -48,7 +48,7 @@ export default function Students() {
             placeholder="Please Enter Your Roll No"
             onChange={(e) => setBatch(e.target.value)}
           />
-          <button className="btn btn-primary w-100 ms-4" onClick={ctaHandler}>
+          <button className="btn btn-danger w-100 ms-4" onClick={ctaHandler}>
             Submit
           </button>
           <hr />
