@@ -15,8 +15,19 @@ export default function Students() {
   //   console.log("e", e.target.name);
   //   console.log("E", e.target.value);
   // }
+  const deleteHandler = (index) => {
+    console.log("index", index);
+    let abc = students.filter((user) => {
+      return user.id !== index;
+    })
+
+    setStudents(abc);
+
+
+  }
 
   const ctaHandler = () => {
+    // let error1 = document.getElementById("error");
     setMessage("")
     if (name !== "" && batch !== "" && rollno !== "") {
       let newStudent = {
@@ -26,20 +37,22 @@ export default function Students() {
       };
       console.log("New add Students", newStudent);
       // new data add in student list
-      setStudents([...students, newStudent]);
+      // setStudents([...students, newStudent]);
+      setStudents([newStudent, ...students,]);
+
       // for empty inputs
       setName("");
       setRollno("");
       setBatch("");
     }
     else {
-      setMessage("Found Few of Params empty! Params can,t empty")
+      setMessage("Found Few of Params empty! Params can,t empty");
     }
   }
   return (
     <div className="container">
       <div className="row">
-        <div className="col">
+        <div className="col col-x-sm-12">
           <input
             className="form-control m-4"
             type="text"
@@ -67,14 +80,13 @@ export default function Students() {
         <button className="btn btn-danger w-100 ms-4" onClick={ctaHandler}>
           Submit
         </button>
-        <p className="d-flex justify-content-center m-4 p-2 ms-5 " style={{ backgroundColor: "blue", color: "white" }}>
+        <p className="d-flex justify-content-center m-4 p-2 text-black" style={{ backgroundColor: 'blue', color: "whitesmoke" }}>
           {
             errorMessage
           }
-
         </p>
         <hr />
-        <h1 className=" d-flex justify-content-center align-items-center">List of Students</h1>
+        <h1 className=" d-flex justify-content-center align-items-center ">List of Students</h1>
         <table class="table table-info">
           <thead>
             <tr>
@@ -82,11 +94,14 @@ export default function Students() {
               <th scope="col">Name:</th>
               <th scope="col">RollNo:</th>
               <th scope="col">Class</th>
+              <th scope="col">Actions Perform</th>
             </tr>
           </thead>
-          {students.map((item, index) => {
-            return <StudentList index={index} student={item} />;
-          })}
+          {
+            students.map((item, index) => {
+              return <StudentList index={index + 1} student={item} deleteHandler={deleteHandler} />;
+            })
+          }
         </table>
       </div>
     </div>
