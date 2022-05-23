@@ -7,6 +7,10 @@
 .nav-link:hover {
   background: #1811ef;
 }
+::selection{
+  color: #ffffff;
+  background-color: rgb(200, 211, 0);
+}
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -111,32 +115,20 @@
 }
 
 body {
-  /* background: #feac5e;
+  background: #3a1c71; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
-    #4bc0c8,
-    #c779d0,
-    #feac5e
-  ); 
-  background: linear-gradient(
-    to right,
-    #4bc0c8,
-    #c779d0,
-    #feac5e
-  ); */
-  background: #a8c0ff; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #3f2b96,
-    #a8c0ff
+    #ffaf7b,
+    #d76d77,
+    #3a1c71
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to right,
-    #3f2b96,
-    #a8c0ff
+    #ffaf7b,
+    #d76d77,
+    #3a1c71
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-  /* background-color: #00ff04; */
   margin: 0;
   padding: 0;
   font-family: var(--bs-font-sans-serif);
@@ -151,10 +143,10 @@ body {
   /* user-select: none; */
   /* -webkit-user-select: var(--bs-warning); */
 }
-::selection {
+/* ::selection {
   color: white;
   background: #4ef54e65;
-}
+} */
 
 .icon {
   height: 3vw;

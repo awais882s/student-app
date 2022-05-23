@@ -10,18 +10,13 @@ export default function Students() {
   const [batch, setBatch] = useState("");
   // for error messages
   const [errorMessage, setMessage] = useState("")
-
   // const innputHandler = () => {
   //   console.log("e", e.target.name);
   //   console.log("E", e.target.value);
   // }
   const deleteHandler = (index) => {
     console.log("index", index);
-    let abc = students.filter((user) => {
-      return user.id !== index;
-    })
 
-    setStudents(abc);
 
 
   }
