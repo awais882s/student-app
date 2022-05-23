@@ -22,10 +22,23 @@ export default function Students() {
         return student;
       }
 
-    });
+    }); 
     setStudents([...newStudents]);
     console.log("newstudents", newStudents);
   };
+// delete by name 
+// const deleteHandler = (name) => { 
+//   console.log("name", name);
+
+//   let newStudents = students.filter((student, i) => {
+//     if (student.name !== name) {
+//       return student;
+//     }
+
+//   });
+//   setStudents([...newStudents]);
+//   console.log("newstudents", newStudents);
+// };
 
   const ctaHandler = () => {
     // let error1 = document.getElementById("error");
