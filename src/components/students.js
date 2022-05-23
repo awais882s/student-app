@@ -9,7 +9,7 @@ export default function Students() {
   const [rollno, setRollno] = useState("");
   const [batch, setBatch] = useState("");
   const [flag, setFlag] = useState(false);
-  const [update, setupdateIndex] = useState(0);
+  const [updatedIndex, setupdateIndex] = useState(0);
   // for error messages
   const [errorMessage, setMessage] = useState("");
   // const innputHandler = () => {
@@ -44,7 +44,7 @@ export default function Students() {
   // for update items
   const updatehandler = (student, index) => {
     console.log("need to update stu", student);
-    setupdateIndex(index)
+    setupdateIndex(index);
     setName(student.name);
     setRollno(student.rollno);
     setBatch(student.batch);
@@ -78,16 +78,16 @@ export default function Students() {
   const ctaUpdateHandler = () => {
     setMessage("");
     if (name !== "" && batch !== "" && rollno !== "") {
-      let newStudent = {
+      let student = {
         name,
         rollno,
         batch,
       };
-      console.log("New add Students", newStudent);
+      console.log("New add Students", student);
 
       let updatedStudents = students.map((stu, index) => {
-        if (setupdateIndex === index) {
-          return stu
+        if (updatedIndex === index) {
+          return student
         } else {
           return stu;
         }
@@ -142,7 +142,7 @@ export default function Students() {
             Update
           </button>
           :
-          <button className="btn btn-danger w-100 ms-4" onClick={ctaHandler}>
+          <button className="btn btn-warning w-100 ms-4" onClick={ctaHandler}>
             Submit
           </button>
 
@@ -158,13 +158,13 @@ export default function Students() {
         <h1 className=" d-flex justify-content-center align-items-center ">
           List of Students
         </h1>
-        <table class="table table-info">
+        <table class="table table-primary">
           <thead>
             <tr>
               <th>No:</th>
               <th scope="col">Name:</th>
               <th scope="col">RollNo:</th>
-              <th scope="col">Class</th>
+              <th scope="col">Batch</th>
               <th scope="col">Actions Perform</th>
               <th scope="col">Update Item</th>
 
