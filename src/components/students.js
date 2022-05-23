@@ -142,7 +142,7 @@ export default function Students() {
             Update
           </button>
           :
-          <button className="btn btn-warning w-100 ms-4" onClick={ctaHandler}>
+          <button className="btn btn-warning w-98 ms-4" onClick={ctaHandler}>
             Submit
           </button>
 
@@ -158,7 +158,7 @@ export default function Students() {
         <h1 className=" d-flex justify-content-center align-items-center ">
           List of Students
         </h1>
-        <table class="table table-primary">
+        <table class="table table-primary ms-4 ">
           <thead>
             <tr>
               <th>No:</th>
