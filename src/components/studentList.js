@@ -14,7 +14,7 @@ export default function StudentList({ student, index, deleteHandler, updatehandl
           </button>
         </td>
         <td>
-          <button className="btn btn-success" onClick={() => updatehandler(student)}>
+          <button className="btn btn-success" onClick={() => updatehandler(student,index)}>
             Update Items
           </button>
         </td>

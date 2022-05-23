@@ -8,6 +8,8 @@ export default function Students() {
   const [name, setName] = useState("");
   const [rollno, setRollno] = useState("");
   const [batch, setBatch] = useState("");
+  const [flag, setFlag] = useState(false);
+  const [update, setupdateIndex] = useState(0);
   // for error messages
   const [errorMessage, setMessage] = useState("");
   // const innputHandler = () => {
@@ -39,9 +41,18 @@ export default function Students() {
   //   setStudents([...newStudents]);
   //   console.log("newstudents", newStudents);
   // };
+  // for update items
+  const updatehandler = (student, index) => {
+    console.log("need to update stu", student);
+    setupdateIndex(index)
+    setName(student.name);
+    setRollno(student.rollno);
+    setBatch(student.batch);
+    setFlag(true);
+
+  }
 
   const ctaHandler = () => {
-    // let error1 = document.getElementById("error");
     setMessage("");
     if (name !== "" && batch !== "" && rollno !== "") {
       let newStudent = {
@@ -62,6 +73,40 @@ export default function Students() {
       setMessage("Found Few of Params empty! Params can,t empty");
     }
   };
+
+  // call to action for update handlers
+  const ctaUpdateHandler = () => {
+    setMessage("");
+    if (name !== "" && batch !== "" && rollno !== "") {
+      let newStudent = {
+        name,
+        rollno,
+        batch,
+      };
+      console.log("New add Students", newStudent);
+
+      let updatedStudents = students.map((stu, index) => {
+        if (setupdateIndex === index) {
+          return stu
+        } else {
+          return stu;
+        }
+
+      })
+      // new data add in student list
+      // setStudents([...students, newStudent]);
+      setStudents([...updatedStudents]);
+
+      // for empty inputs
+      setName("");
+      setRollno("");
+      setBatch("");
+      setFlag(false);
+    } else {
+      setMessage("Found Few of Params empty! Params can,t empty");
+    }
+
+  }
   return (
     <div className="container">
       <div className="row">
@@ -90,9 +135,19 @@ export default function Students() {
             onChange={(e) => setBatch(e.target.value)}
           />
         </div>
-        <button className="btn btn-danger w-100 ms-4" onClick={ctaHandler}>
-          Submit
-        </button>
+
+        {/* for using flag mtlb konsa button dikhana hai usko  */}
+        {flag ?
+          <button className="btn btn-danger w-100 ms-4" onClick={ctaUpdateHandler}>
+            Update
+          </button>
+          :
+          <button className="btn btn-danger w-100 ms-4" onClick={ctaHandler}>
+            Submit
+          </button>
+
+        }
+
         <p
           className="d-flex justify-content-center m-4 p-2 text-black"
           style={{ backgroundColor: "blue", color: "whitesmoke" }}
@@ -121,6 +176,7 @@ export default function Students() {
                 index={index}
                 student={item}
                 deleteHandler={deleteHandler}
+                updatehandler={updatehandler}
               />
             );
           })}
