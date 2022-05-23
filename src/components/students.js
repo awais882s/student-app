@@ -9,7 +9,7 @@ export default function Students() {
   const [rollno, setRollno] = useState("");
   const [batch, setBatch] = useState("");
   // for error messages
-  const [errorMessage, setMessage] = useState("")
+  const [errorMessage, setMessage] = useState("");
   // const innputHandler = () => {
   //   console.log("e", e.target.name);
   //   console.log("E", e.target.value);
@@ -17,13 +17,19 @@ export default function Students() {
   const deleteHandler = (index) => {
     console.log("index", index);
 
+    let newStudents = students.filter((student, i) => {
+      if (i !== index) {
+        return student;
+      }
 
-
-  }
+    });
+    setStudents([...newStudents]);
+    console.log("newstudents", newStudents);
+  };
 
   const ctaHandler = () => {
     // let error1 = document.getElementById("error");
-    setMessage("")
+    setMessage("");
     if (name !== "" && batch !== "" && rollno !== "") {
       let newStudent = {
         name,
@@ -33,17 +39,16 @@ export default function Students() {
       console.log("New add Students", newStudent);
       // new data add in student list
       // setStudents([...students, newStudent]);
-      setStudents([newStudent, ...students,]);
+      setStudents([newStudent, ...students]);
 
       // for empty inputs
       setName("");
       setRollno("");
       setBatch("");
-    }
-    else {
+    } else {
       setMessage("Found Few of Params empty! Params can,t empty");
     }
-  }
+  };
   return (
     <div className="container">
       <div className="row">
@@ -75,13 +80,16 @@ export default function Students() {
         <button className="btn btn-danger w-100 ms-4" onClick={ctaHandler}>
           Submit
         </button>
-        <p className="d-flex justify-content-center m-4 p-2 text-black" style={{ backgroundColor: 'blue', color: "whitesmoke" }}>
-          {
-            errorMessage
-          }
+        <p
+          className="d-flex justify-content-center m-4 p-2 text-black"
+          style={{ backgroundColor: "blue", color: "whitesmoke" }}
+        >
+          {errorMessage}
         </p>
         <hr />
-        <h1 className=" d-flex justify-content-center align-items-center ">List of Students</h1>
+        <h1 className=" d-flex justify-content-center align-items-center ">
+          List of Students
+        </h1>
         <table class="table table-info">
           <thead>
             <tr>
@@ -92,11 +100,15 @@ export default function Students() {
               <th scope="col">Actions Perform</th>
             </tr>
           </thead>
-          {
-            students.map((item, index) => {
-              return <StudentList index={index + 1} student={item} deleteHandler={deleteHandler} />;
-            })
-          }
+          {students.map((item, index) => {
+            return (
+              <StudentList
+                index={index}
+                student={item}
+                deleteHandler={deleteHandler}
+              />
+            );
+          })}
         </table>
       </div>
     </div>

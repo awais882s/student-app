@@ -9,7 +9,7 @@ export default function StudentList({ student, index, deleteHandler }) {
         <td>{student.rollno}</td>
         <td>{student.batch}</td>
         <td>
-          <button className="btn btn-warning" onClick={() => deleteHandler(index)}>
+          <button className="btn btn-info" onClick={() => deleteHandler(index)}>
             Delete
           </button>
         </td>
