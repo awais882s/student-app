@@ -22,23 +22,23 @@ export default function Students() {
         return student;
       }
 
-    }); 
+    });
     setStudents([...newStudents]);
     console.log("newstudents", newStudents);
   };
-// delete by name 
-// const deleteHandler = (name) => { 
-//   console.log("name", name);
+  // delete by name 
+  // const deleteHandler = (name) => { 
+  //   console.log("name", name);
 
-//   let newStudents = students.filter((student, i) => {
-//     if (student.name !== name) {
-//       return student;
-//     }
+  //   let newStudents = students.filter((student, i) => {
+  //     if (student.name !== name) {
+  //       return student;
+  //     }
 
-//   });
-//   setStudents([...newStudents]);
-//   console.log("newstudents", newStudents);
-// };
+  //   });
+  //   setStudents([...newStudents]);
+  //   console.log("newstudents", newStudents);
+  // };
 
   const ctaHandler = () => {
     // let error1 = document.getElementById("error");
@@ -111,6 +111,8 @@ export default function Students() {
               <th scope="col">RollNo:</th>
               <th scope="col">Class</th>
               <th scope="col">Actions Perform</th>
+              <th scope="col">Update Item</th>
+
             </tr>
           </thead>
           {students.map((item, index) => {
