@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { data } from "./data";
 import StudentList from "./studentList";
 import "../Boostrap/index.css";
+// import Dark from './Dark'
 
 export default function Students() {
   const [students, setStudents] = useState(data);
@@ -21,15 +22,15 @@ export default function Students() {
 
     let newStudents = students.filter((student, i) => {
       if (i !== index) {
+        // console.log("this is delete ", index);
         return student;
       }
-
     });
     setStudents([...newStudents]);
     console.log("newstudents", newStudents);
   };
-  // delete by name 
-  // const deleteHandler = (name) => { 
+  // delete by name
+  // const deleteHandler = (name) => {
   //   console.log("name", name);
 
   //   let newStudents = students.filter((student, i) => {
@@ -49,8 +50,7 @@ export default function Students() {
     setRollno(student.rollno);
     setBatch(student.batch);
     setFlag(true);
-
-  }
+  };
 
   const ctaHandler = () => {
     setMessage("");
@@ -87,12 +87,11 @@ export default function Students() {
 
       let updatedStudents = students.map((stu, index) => {
         if (updatedIndex === index) {
-          return student
+          return student;
         } else {
-          return stu;
+          return student;
         }
-
-      })
+      });
       // new data add in student list
       // setStudents([...students, newStudent]);
       setStudents([...updatedStudents]);
@@ -105,14 +104,14 @@ export default function Students() {
     } else {
       setMessage("Found Few of Params empty! Params can,t empty");
     }
-
-  }
+  };
   return (
     <div className="container">
       <div className="row">
         <div className="col col-x-sm-12">
           <input
             className="form-control m-4"
+            maxLength={20}
             type="text"
             value={name}
             placeholder="Please Enter Your Name"
@@ -122,6 +121,7 @@ export default function Students() {
           <input
             className="form-control m-4"
             type="text"
+            maxLength={8}
             value={rollno}
             placeholder="Please Enter Your Roll No"
             name="name"
@@ -131,22 +131,24 @@ export default function Students() {
             className="form-control m-4"
             type="text"
             value={batch}
-            placeholder="Please Enter Your Class Name"
+            placeholder="Please Enter Your Batch"
             onChange={(e) => setBatch(e.target.value)}
           />
         </div>
 
         {/* for using flag mtlb konsa button dikhana hai usko  */}
-        {flag ?
-          <button className="btn btn-danger w-100 ms-4" onClick={ctaUpdateHandler}>
+        {flag ? (
+          <button
+            className="btn btn-danger w-100 ms-4"
+            onClick={ctaUpdateHandler}
+          >
             Update
           </button>
-          :
+        ) : (
           <button className="btn btn-warning w-98 ms-4" onClick={ctaHandler}>
             Submit
           </button>
-
-        }
+        )}
 
         <p
           className="d-flex justify-content-center m-4 p-2 text-black"
@@ -167,7 +169,6 @@ export default function Students() {
               <th scope="col">Batch</th>
               <th scope="col">Actions Perform</th>
               <th scope="col">Update Item</th>
-
             </tr>
           </thead>
           {students.map((item, index) => {
