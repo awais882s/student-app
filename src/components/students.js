@@ -62,7 +62,7 @@ export default function Students() {
       };
       console.log("New add Students", newStudent);
       // new data add in student list
-      // setStudents([...students, newStudent]);
+      // setStudents([...studentys, newStudent]);
       setStudents([newStudent, ...students]);
 
       // for empty inputs
@@ -171,7 +171,7 @@ export default function Students() {
               <th scope="col">Update Item</th>
             </tr>
           </thead>
-          {students.map((item, index) => {
+          {students.map((item, index,) => {
             return (
               <StudentList
                 index={index}
