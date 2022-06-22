@@ -7,7 +7,7 @@
 .nav-link:hover {
   background: #1811ef;
 }
-::selection{
+::selection {
   color: #ffffff;
   background-color: rgb(200, 211, 0);
 }
@@ -116,18 +116,8 @@
 
 body {
   background: #3a1c71; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #ffaf7b,
-    #d76d77,
-    #3a1c71
-  ) fixed; /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #ffaf7b,
-    #d76d77,
-    #3a1c71
-  ) fixed; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(to right, #ffaf7b, #d76d77, #3a1c71) fixed; /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ffaf7b, #d76d77, #3a1c71) fixed; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   margin: 0;
   padding: 0;
@@ -2620,7 +2610,7 @@ textarea.form-control-lg {
   -moz-appearance: none;
   appearance: none;
   -webkit-print-color-adjust: exact;
-  color-adjust: exact;
+  print-color-adjust: exact;
 }
 
 .form-check-input[type="checkbox"] {
@@ -11611,3 +11601,4 @@ fieldset:disabled .btn {
     display: none !important;
   }
 }
+ 

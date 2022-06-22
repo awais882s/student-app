@@ -171,7 +171,7 @@ export default function Students() {
               <th scope="col">Update Item</th>
             </tr>
           </thead>
-          {students.map((item, index,) => {
+          {students.map((item, index) => {
             return (
               <StudentList
                 index={index}
